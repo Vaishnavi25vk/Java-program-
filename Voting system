@@ -1,0 +1,40 @@
+class VotingSystem
+{
+    static String[] candidates = {"ria", "john", "Charlie"};
+    static int[] votes = new int[candidates.length];  
+    static void displayCandidates() {
+        System.out.println("Candidates:");
+        for (int i = 0; i < candidates.length; i++) {
+            System.out.println((i + 1) + ". " + candidates[i]);
+        }
+    }
+    static void castVote(int choice) 
+    {
+        if (choice >= 1 && choice <= candidates.length) {
+            votes[choice - 1]++;  
+            System.out.println("Vote casted for " + candidates[choice - 1]);
+        } 
+        else 
+        {
+            System.out.println("Invalid choice! Please vote for a valid candidate.");
+        }
+    }
+    static void displayResults()
+    {
+        System.out.println("\nVoting Results:");
+        for (int i = 0; i < candidates.length; i++) {
+            System.out.println(candidates[i] + ": " + votes[i] + " votes");
+        }
+    }
+    public static void main(String[] args) 
+    {
+        displayCandidates();
+        int voteCount = 5; 
+        int[] simulatedVotes = {1, 2, 1, 3, 2};
+        for (int i = 0; i < voteCount; i++)
+        {
+            castVote(simulatedVotes[i]); 
+        }
+        displayResults();
+    }
+}
