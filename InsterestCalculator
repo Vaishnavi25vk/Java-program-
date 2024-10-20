@@ -1,0 +1,22 @@
+public class InterestCalculator 
+{
+public static void main(String[] args) 
+{
+        double principal = 1000;   //Example principal amount
+        double rate = 5;          // Example annual interest rate in percent
+        int time = 3;             // Example time period in years
+        int numberOfTimesCompounded = 4; // For compound interest (e.g., compounded quarterly)
+double simpleInterest = calculateSimpleInterest(principal, rate, time);
+        System.out.println("Simple Interest: " + simpleInterest);
+double compoundInterest = calculateCompoundInterest(principal, rate, time, numberOfTimesCompounded);
+        System.out.println("Compound Interest: " + compoundInterest);
+    }
+    public static double calculateSimpleInterest(double principal, double rate, int time) {
+        return (principal * rate * time) / 100;
+    }
+ public static double calculateCompoundInterest(double principal, double rate, int time, int n) 
+ {
+double amount = principal * Math.pow(1 + (rate / (n * 100)), n * time);
+        return amount - principal; // Compound interest = Total amount - Principal
+    }
+}
