@@ -1,4 +1,4 @@
-public class InterestCalculator 
+class InterestCalculator 
 {
 public static void main(String[] args) 
 {
