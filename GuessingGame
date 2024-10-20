@@ -1,0 +1,23 @@
+class GuessingGame 
+{
+
+    public static void main(String[] args) 
+    {
+        int randomNumber = (int) (Math.random() * 100) + 1;
+        int guessedNumber = 50;
+    System.out.println("Random number (between 1 and 100) has been generated.");
+        System.out.println("Your guessed number is: " + guessedNumber);
+    if (guessedNumber == randomNumber) 
+    {
+    System.out.println("Congratulations! You guessed the correct number.");
+        }
+    else if (guessedNumber < randomNumber) 
+    {
+    System.out.println("Your guess is too low. The correct number was: " + randomNumber);
+        }
+        else 
+        {
+            System.out.println("Your guess is too high. The correct number was: " + randomNumber);
+        }
+    }
+}
