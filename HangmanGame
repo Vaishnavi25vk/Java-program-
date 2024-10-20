@@ -1,0 +1,70 @@
+class HangmanGame 
+{
+    static String wordToGuess = "JAVA"; 
+    static String guessedWord = "";
+    static int incorrectGuesses = 0;       
+    static final int MAX_INCORRECT = 6;    
+    static void initializeGuessedWord()
+    {
+        for (int i = 0; i < wordToGuess.length(); i++)
+        {
+            guessedWord += "_";  
+        }
+    }
+    static void displayGuessedWord() 
+    {
+        System.out.println("Current guess: " + guessedWord);
+    }
+    static void guessLetter(char letter) 
+    {
+        boolean found = false;
+        StringBuilder updatedGuessedWord = new StringBuilder(guessedWord);
+        for (int i = 0; i < wordToGuess.length(); i++) 
+        {
+            if (wordToGuess.charAt(i) == letter) {
+                updatedGuessedWord.setCharAt(i, letter);
+                found = true;
+            }
+        }
+        guessedWord = updatedGuessedWord.toString();
+        if (!found) 
+        {
+            incorrectGuesses++; 
+            System.out.println("Incorrect guess! Total incorrect guesses: " + incorrectGuesses);
+        } 
+        else 
+        {
+            System.out.println("Correct guess!");
+        }
+    }
+    static boolean isGameWon() {
+        return guessedWord.equals(wordToGuess);
+    }
+    static boolean isGameLost() 
+    {
+        return incorrectGuesses >= MAX_INCORRECT;
+    }
+    public static void main(String[] args) 
+    {
+        initializeGuessedWord();
+        char[] guesses = {'J', 'A', 'B', 'V', 'C', 'D'}; 
+
+        for (char guess : guesses) {
+            System.out.println("Guessing: " + guess);
+            guessLetter(guess);
+            displayGuessedWord();
+
+            if (isGameWon())
+            {
+                System.out.println("Congratulations! You've guessed the word: " + wordToGuess);
+                return;
+            }
+
+            if (isGameLost()) 
+            {
+                System.out.println("Game Over! The word was: " + wordToGuess);
+                return;
+            }
+        }
+    }
+}
