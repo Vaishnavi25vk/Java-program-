@@ -4,7 +4,7 @@ public static void main(String[] args)
 {
         double principal = 1000;   //Example principal amount
         double rate = 5;          // Example annual interest rate in percent
-        int time = 3;             // Example time period in years
+        int time = 3;             // Example time period in year
         int numberOfTimesCompounded = 4; // For compound interest (e.g., compounded quarterly)
 double simpleInterest = calculateSimpleInterest(principal, rate, time);
         System.out.println("Simple Interest: " + simpleInterest);
